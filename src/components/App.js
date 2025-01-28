@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/App.css';
 
+const WeatherDisplay = ({ weather }) => {
+  const { temperature, conditions } = weather;
+  const temperatureStyle = temperature > 20 ? { color: 'red' } : { color: 'blue' };
+
+  return (
+    <div>
+      <p style={temperatureStyle}>Temperature: {temperature}&deg;C</p> 
+      <p>Conditions: {conditions}</p>
+    </div>
+  );
+};
 
 const App = () => {
   const [weather, setWeather] = useState({ 
