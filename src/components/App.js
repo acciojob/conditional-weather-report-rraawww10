@@ -1,13 +1,24 @@
-
-import React from "react";
-import './../styles/App.css';
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import WeatherDisplay from './WeatherDisplay'; 
 
 const App = () => {
+  const [weather, setWeather] = useState({ 
+    temperature: 25, 
+    conditions: "Sunny" 
+  });
+
+  useEffect(() => {
+    // You can add API calls here to fetch real-time weather data 
+    // For this example, we use a static value
+    setWeather({ temperature: 25, conditions: "Sunny" }); 
+  }, []); 
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      <WeatherDisplay weather={weather} /> 
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
